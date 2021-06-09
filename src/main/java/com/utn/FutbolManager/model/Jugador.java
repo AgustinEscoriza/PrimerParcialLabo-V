@@ -18,6 +18,7 @@ public class Jugador extends Persona{
     private Integer goles;
     private Integer minutosJugados;
     private Date fechaNacimiento;
+    private Float valorMercado;
 
     @OneToOne( fetch = FetchType.EAGER) // asumo que cada jugador tiene una sola currency, ya que seria su valor en el mercado
     private Currency currency;
@@ -25,5 +26,9 @@ public class Jugador extends Persona{
     @Override
     public TypePersona typePersona(){
         return TypePersona.JUGADOR;
+    }
+
+    public Float getValorMercado() {
+        return valorMercado * currency.getCambio();
     }
 }

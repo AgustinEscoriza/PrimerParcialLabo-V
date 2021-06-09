@@ -1,6 +1,7 @@
 package com.utn.FutbolManager.service;
 
 
+import com.utn.FutbolManager.model.Currency;
 import com.utn.FutbolManager.model.Jugador;
 import com.utn.FutbolManager.model.Persona;
 import com.utn.FutbolManager.model.Representante;
@@ -39,22 +40,7 @@ public class PersonaService {
         Jugador jugador = (Jugador)getById(IdJugador);
         representante.getJugadores().add(jugador);
 
-        //CALCULO MONTO EN PESOS y cargo
-        Float monto;
-        if(!jugador.getCurrency().equals(null)) {
-            if (jugador.getCurrency().getMonto().toString().equalsIgnoreCase("dolar")) {
-                monto = jugador.getCurrency().getMonto() * 150;
-            } else {
-                if (jugador.getCurrency().getMonto().toString().equalsIgnoreCase("euro")) {
-                    monto = jugador.getCurrency().getMonto() * 170;
-                } else {
-                    monto = jugador.getCurrency().getMonto();
-                }
-            }
-            representante.setMontoTotal(monto);
-        }
-        //Calculo y cargo el peso
-        representante.setPesoBoveda(representante.getMontoTotal()/100); //Peso en gramos
+
 
     }
 }

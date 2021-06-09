@@ -4,7 +4,7 @@ package com.utn.FutbolManager.model;
 
 public enum TypePersona {
     JUGADOR("Jugador"),
-    REPRESNTANTE("Manager");
+    REPRESENTANTE("Manager");
 
     private String descripcion;
 

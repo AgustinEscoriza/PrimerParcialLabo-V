@@ -20,6 +20,10 @@ public class Representante extends Persona{
 
     @Override
     public TypePersona typePersona(){
-        return TypePersona.REPRESNTANTE;
+        return TypePersona.REPRESENTANTE;
+    }
+
+    public Float getMontoTotal() {
+        return jugadores.stream().map(Jugador::getValorMercado).reduce(0f,Float::sum);
     }
 }

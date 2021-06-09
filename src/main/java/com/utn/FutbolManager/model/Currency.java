@@ -1,25 +1,35 @@
 package com.utn.FutbolManager.model;
 
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
 
-@Data
 @NoArgsConstructor
 @Entity
-public class Currency {
+public enum Currency {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer Id;
+    DOLAR(1,"USD",150.0f),
+    EURO(2,"EU",170.0f);
 
-    @NotNull
-    private String currency;
-    @NotNull
-    private Float monto;
+    private Integer id;
+    private String nombre;
+    private Float cambio;
+
+    Currency(Integer id, String nombre, Float cambioAPesos) {
+        this.id = id;
+        this.nombre = nombre;
+        this.cambio = cambioAPesos;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public Float getCambio() {
+        return cambio;
+    }
 }
