@@ -8,29 +8,28 @@ import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
-@Data
-@Builder
-@NoArgsConstructor
+
 public class ListadoDTO {
 
     private String nombre;
     private String currency;
-    private String amount;
+    private Float amount;
 
-    public static ListadoDTO from (Jugador j){
-        return ListadoDTO.builder()
-                .nombre(j.getName() + j.getLastName())
-                .currency(j.getCurrency().getNombre())
-                .build();
-    }
-
-    public static List<ListadoDTO> from (List<Jugador> personaList){
-        List<ListadoDTO> listDto = new ArrayList<ListadoDTO>();
-
-        for(Jugador j : personaList){
-            listDto.add(ListadoDTO.from(j));
-        }
-        return listDto;
-    }
+    //public static ListadoDTO from (Jugador j){
+    //    return ListadoDTO.builder()
+    //            .nombre(j.getName() + j.getLastName())
+    //            .currency(j.getCurrency().getNombre())
+    //            .build();
+    //}
+//
+    //public static List<ListadoDTO> from (List<Jugador> personaList){
+    //    List<ListadoDTO> listDto = new ArrayList<>();
+//
+    //    for(Jugador j : personaList){
+    //        listDto.add(ListadoDTO.from(j));
+    //    }
+    //    return listDto;
+    //}
 }
